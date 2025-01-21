@@ -10,6 +10,7 @@ import { Home3Component } from './Home/home3/home3.component';
 import { LoginComponent } from './Account/login/login.component';
 import { RegisterComponent } from './Account/register/register.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     Home3Component,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

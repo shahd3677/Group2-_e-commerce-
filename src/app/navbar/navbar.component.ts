@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-
+  logoPage:string="62d3960a755658580bdded8a_logo.png"
 }
