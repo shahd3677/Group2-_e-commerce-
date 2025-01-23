@@ -1,11 +1,4 @@
-
-  <nav class="navbar navbar-expand-lg bg-body-tertiary flex-column ">
-    <div class="container">
-      <div class="w-100 text-center desc-text">
-        <p>Flash sale is going on upto 75%</p>
-        <hr>
-    </div>
-    </div>
+ <nav class="navbar navbar-expand-lg flex-column position-absolute top-10 z-2 w-100">
     <div class="container ">
     <a class="navbar-brand  " href="#">
       <img [src]="logoPage" alt="Bootstrap" >
@@ -21,20 +14,20 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-   
+
     <div class="collapse navbar-collapse  "  id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0 ">
-      
+
         <li class="nav-item dropdown mx-2">
-          <a class="nav-link active dropdown-toggle" aria-current="page"  role="button" data-bs-toggle="dropdown" aria-expanded="false" [routerLink]="['/home01']" routerLinkActive="router-link-active" >Home</a>
+          <a class="nav-link active dropdown-toggle" aria-current="page"  role="button" data-bs-toggle="dropdown" aria-expanded="false">Home</a>
           <ul class="dropdown-menu p-0">
               <li ><a class="  dropdown-item" [routerLink]="['/home01']"  routerLinkActive=" router-link-active  " >Home 1</a></li>
               <li><a class=" dropdown-item " [routerLink]="['/home02']" routerLinkActive=" ">Home 2</a></li>
               <li><a class="dropdown-item" [routerLink]="['/home03']" routerLinkActive=" ">Home 3</a></li>
             </ul>
         </li>
-      
-          
+
+
         <li class="nav-item dropdown  mx-2">
           <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
             pages
@@ -42,7 +35,7 @@
           <ul class="dropdown-menu p-0">
             <li><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
             <li><a class="dropdown-item" [routerLink]="['/register']" routerLinkActive="  "  >Register</a></li>
-           
+
           </ul>
         </li>
       </ul>
@@ -60,17 +53,4 @@
        </form>
     </div>
   </div>
-     
-   <div class="container">
-    <div class="row py-4 justify-content-center align-content-center">
-      <div class="col-lg-4 d-flex flex-column justify-content-center">
-        <h1 class="mt-5 mb-3  pt-2">{{pageTitle}}</h1>
-        <p class="my-2 fs-6">Lorem ipsum dolor sit amet, consectetur adipiscing scelerisque a tincidunt urna nisl quam orci males</p>
-      </div>
-      <div class="col-lg-7 offset-1">
-        <img [src]="image" alt="" class="w-100">
-      </div>
-     </div>
-   </div>
-   
   </nav>

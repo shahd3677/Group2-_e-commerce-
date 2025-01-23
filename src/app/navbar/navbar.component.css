@@ -1,3 +1,6 @@
+.top-10{
+  top:10px
+}
 input[type="search"]{
     border-style: none none solid;
     border-width: 1px;
