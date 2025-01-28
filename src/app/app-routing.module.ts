@@ -15,7 +15,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,data:{title:'Login'}},
   {path:'register',component:RegisterComponent,data:{title:'Register'}},
   {path:"**",component:NotFoundComponent,data:{title:'404 page'}}
-];
+];  
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

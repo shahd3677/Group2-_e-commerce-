@@ -1,1 +1,21 @@
-<p>login works!</p>
+
+<app-subsection [pageTitle]="title" ></app-subsection>
+
+<div class="container my-5 ">
+    <div class="row justify-content-center align-items-center ">
+      <div class="col-lg-6">
+          <h2 class="mb-3 fs-1 text-center fw-bolder">Login</h2>
+          <p class="mb-4 text-center text-secondary-emphasis">Please fill your email and password to login</p>
+          <form action="">
+            
+              <label for="email" class="my-2 fw-semibold">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="Enter Your Email" class="form-control rounded-0 mb-3 border-black py-2">
+              <label for="Pasword" class="my-2 fw-semibold">Pasword</label>
+              <input type="text" id="Pasword" name="Pasword" placeholder="Enter Your Password" class="form-control rounded-0 mb-3 border-black py-2">
+              <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold">Log In</button>
+            
+                  <p>Don’t have an account? <a href="#" class="text-dark mx-2">Register</a></p>
+          </form>
+      </div>
+    </div>
+  </div>

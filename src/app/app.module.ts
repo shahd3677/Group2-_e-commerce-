@@ -11,7 +11,15 @@ import { LoginComponent } from './Account/login/login.component';
 import { RegisterComponent } from './Account/register/register.component';
 import { FooterComponent } from './footer/footer.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SubsectionComponent } from './subsection/subsection.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { BrowserAnimationsModule, provideAnimations } from '@angular/platform-browser/animations';
+
+import { ToastrModule, provideToastr } from 'ngx-toastr';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +30,23 @@ import { NotFoundComponent } from './not-found/not-found.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    SubsectionComponent
   ],
   imports: [
+    RouterModule,
+    CommonModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule, // Animation support
+    ToastrModule.forRoot(),  // Toastr configuration
   ],
-  providers: [],
+  providers: [
+ 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
