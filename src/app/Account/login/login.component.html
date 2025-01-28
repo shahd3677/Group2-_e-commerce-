@@ -6,15 +6,28 @@
       <div class="col-lg-6">
           <h2 class="mb-3 fs-1 text-center fw-bolder">Login</h2>
           <p class="mb-4 text-center text-secondary-emphasis">Please fill your email and password to login</p>
-          <form action="">
+          <form [formGroup]="formLogin" (ngSubmit)="handle(formLogin)">
             
-              <label for="email" class="my-2 fw-semibold">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="Enter Your Email" class="form-control rounded-0 mb-3 border-black py-2">
-              <label for="Pasword" class="my-2 fw-semibold">Pasword</label>
-              <input type="text" id="Pasword" name="Pasword" placeholder="Enter Your Password" class="form-control rounded-0 mb-3 border-black py-2">
-              <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold">Log In</button>
+              <div>
+                <label for="email" class="my-2 fw-semibold">Email Address</label>
+              <input  formControlName="email"    type="email" id="email" name="email" placeholder="Enter Your Email" class="form-control rounded-0 mb-3 border-black py-2 ">
+              <div class="alert alert-danger" *ngIf="formLogin.get('email')?.invalid && formLogin.get('email')?.touched">
+                <p *ngIf="formLogin.get('email')?.errors?.['required']" >email is required</p>
+                <p *ngIf="formLogin.get('email')?.errors?.['email']">Enter a valid email address</p>
+              </div>
+              </div>
+              <div>
+                <label for="Pasword" class="my-2 fw-semibold">Pasword</label>
+                <input formControlName="password" type="text" id="Pasword" name="Pasword" placeholder="Enter Your Password" class="form-control rounded-0 mb-3 border-black py-2">
+                <div class="alert alert-danger" *ngIf="formLogin.get('password')?.invalid && formLogin.get('password')?.touched">
+                  <p *ngIf="formLogin.get('password')?.errors?.['required']" >password is required</p>
+                  <p *ngIf="formLogin.get('password')?.errors?.['pattern']">Password must be 6 digits only</p>
+                </div>
+              </div>
             
-                  <p>Don’t have an account? <a href="#" class="text-dark mx-2">Register</a></p>
+              <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold" [disabled]="formLogin.invalid">Log In</button>
+            
+                  <p>Don’t have an account? <a routerLink="/register" class="text-dark mx-2">Register</a></p>
           </form>
       </div>
     </div>
