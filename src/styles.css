@@ -1,5 +1,15 @@
+body{
+  font-family: Jost, sans-serif;
+  font-size: 16px;
+  /*color : #696969;*/
+}
 *{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+h1 , h2{
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 46px;
+  color: #1e1c1c;
 }

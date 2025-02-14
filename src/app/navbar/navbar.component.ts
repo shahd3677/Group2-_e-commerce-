@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../global.service';
+import { GlobalService } from '../services/global.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
 @Component({
@@ -10,13 +10,14 @@ import { filter, map } from 'rxjs/operators';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
-  logoPage: string = "62d3960a755658580bdded8a_logo.png";
+  logoPage: string = '';
   image: string = '';
   pageTitle: string = '';
   constructor(private _GlobalServices: GlobalService, private router: Router, private activatedRoute: ActivatedRoute) {
 
   }
   ngOnInit(): void {
+    this.logoPage = this._GlobalServices.logoPage
     this.image = this._GlobalServices.imgSection;
     this.router.events
       .pipe(
