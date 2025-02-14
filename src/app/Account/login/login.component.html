@@ -6,7 +6,7 @@
       <div class="col-lg-6">
           <h2 class="mb-3 fs-1 text-center fw-bolder">Login</h2>
           <p class="mb-4 text-center text-secondary-emphasis">Please fill your email and password to login</p>
-          <form [formGroup]="formLogin" (ngSubmit)="handle(formLogin)">
+          <form [formGroup]="formLogin" (ngSubmit)="handle(formLogin)" class=" d-flex flex-column">
 
               <div>
                 <label for="email" class="my-2 fw-semibold">Email Address</label>
@@ -24,7 +24,7 @@
                   <p *ngIf="formLogin.get('password')?.errors?.['pattern']">Password must be 6 digits only</p>
                 </div>
               </div>
-
+               <a [routerLink]="['/forget']" class=" ms-auto d-block align-self-end text-dark">Forgot?</a>
               <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold" [disabled]="formLogin.invalid">Log In</button>
 
                   <p>Don’t have an account? <a routerLink="/register" class="text-dark mx-2">Register</a></p>

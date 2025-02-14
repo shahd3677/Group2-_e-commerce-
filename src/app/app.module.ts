@@ -32,6 +32,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { SearchComponent } from './pages/search/search.component';
 import { ProductSectionComponent } from './components/product-section/product-section.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
+import { ResetComponent } from './Account/reset/reset.component';
+import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 
 
 
@@ -62,7 +64,9 @@ import { SingleProductComponent } from './pages/single-product/single-product.co
     CheckoutComponent,
     SearchComponent,
     ProductSectionComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    ResetComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     RouterModule,

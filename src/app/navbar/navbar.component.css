@@ -8,7 +8,18 @@ input[type="search"]{
     background-color: transparent;
     color: #494949;
 }
-.dropdown-item:hover,.dropdown-item:active{
+ .link:hover,.link.active{
+    background-color: #000;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px ;
+    -webkit-border-radius: 4px ;
+    -moz-border-radius: 4px ;
+    -ms-border-radius: 4px ;
+    -o-border-radius: 4px ;
+    margin-right: 5px;
+ }
+.dropdown-item:hover,.dropdown-item:active {
  background-color: #000;
  color: white;
  border: 1px solid transparent;
@@ -18,6 +29,7 @@ input[type="search"]{
  -ms-border-radius: 4px ;
  -o-border-radius: 4px ;
 }
+
 @media (max-width: 991.98px){
     .hidden{
         visibility: visible;
