@@ -1,1 +1,14 @@
 <app-subsection [pageTitle]="title"></app-subsection>
+<section class="py-5">
+  <div class="container py-5">
+    <div class="row py-2">
+      <div class="col-12">
+         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nemo, similique!</p>
+      </div>
+      <div class="col-6 col-lg-4" *ngFor="let product of Products">
+   <app-product-section [productInfo]="product"></app-product-section>
+   </div>
+    </div>
+  </div>
+</section>
+

@@ -13,6 +13,7 @@ import { ProfileComponent } from './Account/profile/profile.component';
 import { LogoutComponent } from './Account/logout/logout.component';
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
+import { SingleProductComponent } from './pages/single-product/single-product.component';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'about',component:AboutComponent,title:'About Farnic'},
   {path:'contact',component:ContactComponent,title:'Contact us'},
   {path:'shop',component:ProductsComponent,title:'Our Products'},
+  {path:'single-product/:id',component:SingleProductComponent,title:'Product Details'},
   {path:'category',component:ProductsCategoryComponent,title:'Products Cateory'},
   {path:'blog',component:BlogsComponent,title:'Our Blogs'},
   {path:'login',component:LoginComponent,title:'Login'},

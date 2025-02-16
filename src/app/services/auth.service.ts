@@ -16,4 +16,11 @@ export class AuthService {
   Register(data:any):Observable<any>{
    return this._HttpClient.post("https://full.faedg.com/public/api/client/customer_register",data)
   }
+  getProducts():Observable<any>{
+    return this._HttpClient.get("https://dummyjson.com/products")
+}
+getProductsCat(category:any):Observable<any>{
+  return this._HttpClient.get(`https://dummyjson.com/products/${category}`)
+}
+
 }
