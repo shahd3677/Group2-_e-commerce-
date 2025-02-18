@@ -1,1 +1,12 @@
-<p>home works!</p>
+<section class="position-relative py-5 bg-light">
+<div class="container py-5">
+<div class="row">
+  <div class="col-12 my-5">
+  <button class="btn btn-secondary me-2" routerLink="/category/{{category}}" *ngFor="let category of Categories" value="{{category}}">{{category}}</button>
+  </div>
+  <div class="col-6 col-lg-4" *ngFor="let product of LimitedProducts">
+    <app-product-section [productInfo]="product"></app-product-section>
+ </div>
+</div>
+</div>
+</section>
