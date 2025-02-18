@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -23,7 +23,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { LogosComponent } from './components/logos/logos.component';
 import { ProfileComponent } from './Account/profile/profile.component';
-import { LogoutComponent } from './Account/logout/logout.component';
 import { OrderComponent } from './Account/order/order.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductsComponent } from './pages/products/products.component';
@@ -34,6 +33,7 @@ import { ProductSectionComponent } from './components/product-section/product-se
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
+import { authInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
 
 
 
@@ -56,7 +56,6 @@ import { ForgetPasswordComponent } from './Account/forget-password/forget-passwo
     NewsletterComponent,
     LogosComponent,
     ProfileComponent,
-    LogoutComponent,
     OrderComponent,
     CartComponent,
     ProductsComponent,
@@ -80,7 +79,7 @@ import { ForgetPasswordComponent } from './Account/forget-password/forget-passwo
     ToastrModule.forRoot(),
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptorInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

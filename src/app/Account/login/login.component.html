@@ -24,8 +24,8 @@
                   <p *ngIf="formLogin.get('password')?.errors?.['pattern']">Password must be 6 digits only</p>
                 </div>
               </div>
-               <a [routerLink]="['/forget']" class=" ms-auto d-block align-self-end text-dark">Forgot?</a>
-              <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold" [disabled]="formLogin.invalid">Log In</button>
+               <a  [routerLink]="['/forget']" class=" ms-auto d-block align-self-end text-dark" >Forgot?</a>
+              <button class="btn btn-dark text-white form-control rounded-0 my-3 py-3 fw-bold" [disabled]="formLogin.invalid">LOGIN</button>
 
                   <p>Don’t have an account? <a routerLink="/register" class="text-dark mx-2">Register</a></p>
           </form>

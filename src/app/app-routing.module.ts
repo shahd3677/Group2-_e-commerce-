@@ -10,7 +10,6 @@ import { ProductsComponent } from './pages/products/products.component';
 import { ProductsCategoryComponent } from './pages/products-category/products-category.component';
 import { BlogsComponent } from './pages/blogs/blogs.component';
 import { ProfileComponent } from './Account/profile/profile.component';
-import { LogoutComponent } from './Account/logout/logout.component';
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 
@@ -28,7 +27,6 @@ const routes: Routes = [
   {path:'reset',component:ResetComponent,title:'Reset Password'},
   {path:'forget',component:ForgetPasswordComponent,title:'Forget Password'},
   {path:'profile',component:ProfileComponent,title:'User Profile'},
-  {path:'logout',component:LogoutComponent,title:'Logout'},
   {path:"**",component:NotFoundComponent,title:'404 page'}
 ];
 
