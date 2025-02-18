@@ -4,7 +4,7 @@
         <img src="{{productInfo.image}}" class="card-img-top w-100 bg-light" style="height: 400px;" alt="{{productInfo.title}}" />
       </a>
       <div class="btn-overlay position-absolute z-2">
-        <button class="btn px-5 button-seller">Add to Cart</button>
+        <button class="btn px-5 button-seller" [routerLink]="['/cart']">Add to Cart</button>
       </div>
      </div>
       <div class="card-body position-relative bg-white z-1 px-0">

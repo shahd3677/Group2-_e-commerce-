@@ -13,6 +13,7 @@ import { ProfileComponent } from './Account/profile/profile.component';
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'reset',component:ResetComponent,title:'Reset Password'},
   {path:'forget',component:ForgetPasswordComponent,title:'Forget Password'},
   {path:'profile',component:ProfileComponent,title:'User Profile'},
+  {path:'cart',component:CartComponent,title:'cart'},
   {path:"**",component:NotFoundComponent,title:'404 page'}
 ];
 
