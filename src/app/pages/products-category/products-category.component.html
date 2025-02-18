@@ -1,1 +1,14 @@
 <app-subsection [pageTitle]="title"></app-subsection>
+<section class="py-5">
+  <div class="container py-5">
+    <div class="row g-5 py-3">
+      <div class="col-12 mb-5">
+        <h2>Category by: <span class="ps-2">{{category}}</span></h2>
+      </div>
+      <app-sortby-section></app-sortby-section>
+      <div class="col-6 col-lg-4" *ngFor="let product of ProductsCategory">
+     <app-product-section [productInfo]="product"></app-product-section>
+    </div>
+    </div>
+  </div>
+</section>

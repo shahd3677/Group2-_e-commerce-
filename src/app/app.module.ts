@@ -34,6 +34,7 @@ import { ProductSectionComponent } from './components/product-section/product-se
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
+import { SortbySectionComponent } from './components/sortby-section/sortby-section.component';
 
 
 
@@ -66,7 +67,8 @@ import { ForgetPasswordComponent } from './Account/forget-password/forget-passwo
     ProductSectionComponent,
     SingleProductComponent,
     ResetComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    SortbySectionComponent
   ],
   imports: [
     RouterModule,

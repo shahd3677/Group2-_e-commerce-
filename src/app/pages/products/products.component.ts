@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -11,13 +12,14 @@ import { AuthService } from '../../services/auth.service';
 export class ProductsComponent {
  title : string = "Our Products"
  Products : any = []
- constructor(private auth : AuthService){
+ constructor(private product : ProductService){
 
  }
  ngOnInit(){
-  this.auth.getProducts().subscribe((res)=>{
-    // console.log(res.products)
-    this.Products = res.products
+  this.product.getAllProducts().subscribe((res)=>{
+    //console.log(res)
+    this.Products = res
   })
  }
+
 }
