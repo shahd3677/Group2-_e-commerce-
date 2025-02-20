@@ -37,7 +37,7 @@ handle(form:FormGroup):void{
     next:(res :any)=>{
       console.log(res)
       this.toastr.success("Sign Up Successfully")
-      this.router.navigateByUrl('/')
+      this.router.navigateByUrl('/home')
     },
     error:(err)=>{
       console.log(err)

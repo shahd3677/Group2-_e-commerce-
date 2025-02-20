@@ -1,12 +1,34 @@
 <section class="position-relative py-5 bg-light">
 <div class="container py-5">
-<div class="row">
+<div class="row ">
   <div class="col-12 my-5">
   <button class="btn btn-secondary me-2" routerLink="/category/{{category}}" *ngFor="let category of Categories" value="{{category}}">{{category}}</button>
   </div>
-  <div class="col-6 col-lg-4" *ngFor="let product of LimitedProducts">
-    <app-product-section [productInfo]="product"></app-product-section>
- </div>
+
+</div>
+
+<div class="row">
+  <!-- عرض الـ Spinner أثناء تحميل البيانات -->
+  <div *ngIf="isLoading" class="col-12 text-center">
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="white"
+      type="ball-spin"
+      [fullScreen]="true"
+    >
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+  </div>
+
+  <!-- عرض المنتجات بعد انتهاء التحميل -->
+  <ng-container *ngIf="!isLoading">
+    <div class="col-6 col-lg-4" *ngFor="let product of LimitedProducts">
+      <app-product-section [productInfo]="product"></app-product-section>
+    </div>
+  </ng-container>
 </div>
 </div>
+
+
 </section>

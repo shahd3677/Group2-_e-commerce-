@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -10,4 +11,14 @@ import { Component } from '@angular/core';
 export class NotFoundComponent {
      title:string="Error_404"
      imgLogo:string="Error.svg"
+     constructor(private router:Router){}
+     
+     handelSubmit(){
+      const isLogin=localStorage.getItem("userToken")
+      if(isLogin){
+       this.router.navigate(['/home'])
+      }else{
+        this.router.navigate(['/login'])
+      }
+     }
 }

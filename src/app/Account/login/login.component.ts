@@ -29,7 +29,7 @@ constructor(private _AuthService: AuthService,private toastr: ToastrService,priv
          this._AuthService.userToken=res.data.token;
          this._AuthService.isLogin=true
          this.toastr.success("Login Successsfully");
-         this.router.navigateByUrl('/');
+         this.router.navigateByUrl('/home');
        },
        error:(err)=>{
         console.log(err)

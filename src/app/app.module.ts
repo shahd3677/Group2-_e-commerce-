@@ -35,7 +35,7 @@ import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 import { SortbySectionComponent } from './components/sortby-section/sortby-section.component';
 import { authInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -79,6 +79,7 @@ import { authInterceptorInterceptor } from './interceptor/auth-interceptor.inter
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule,
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptorInterceptor]))
