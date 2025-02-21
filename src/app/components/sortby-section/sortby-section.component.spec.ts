@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LogoutComponent } from './logout.component';
+import { SortbySectionComponent } from './sortby-section.component';
 
-describe('LogoutComponent', () => {
-  let component: LogoutComponent;
-  let fixture: ComponentFixture<LogoutComponent>;
+describe('SortbySectionComponent', () => {
+  let component: SortbySectionComponent;
+  let fixture: ComponentFixture<SortbySectionComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LogoutComponent]
+      declarations: [SortbySectionComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(LogoutComponent);
+    fixture = TestBed.createComponent(SortbySectionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

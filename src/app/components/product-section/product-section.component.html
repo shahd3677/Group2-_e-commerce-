@@ -1,1 +1,20 @@
-<p>product-section works!</p>
+    <div class="card seller-hover overflow-hidden border-0 my-3">
+      <div class="position-relative z-1 bg-light">
+      <a routerLink="/single-product/{{productInfo.id}}" >
+        <img src="{{productInfo.image}}" class="card-img-top w-100 bg-light" style="height: 400px;" alt="{{productInfo.title}}" />
+      </a>
+      <div class="btn-overlay position-absolute z-2">
+        <button class="btn px-5 button-seller" [routerLink]="['/cart']">Add to Cart</button>
+      </div>
+     </div>
+      <div class="card-body position-relative bg-white z-1 px-0">
+        <h5><a class="card-title fw-semibold" routerLink="/single-product/{{productInfo.id}}">{{productInfo.title}}</a></h5>
+        <p *ngIf="productInfo.discountPercentage ; else price" class="card-text fw-semibold fs-5">$&nbsp;{{productInfo.price * productInfo.discountPercentage/100 | number}}
+          <span class="fw-medium fs-6 text-secondary text-decoration-line-through px-2">$&nbsp;{{productInfo.price}}&nbsp;USD</span>
+        </p>
+        <ng-template #price>
+          <p class="card-text fw-semibold fs-5">$&nbsp;{{productInfo.price}}&nbsp;USD</p>
+        </ng-template>
+      </div>
+    </div>
+

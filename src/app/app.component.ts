@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GlobalService } from './services/global.service';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +6,6 @@ import { GlobalService } from './services/global.service';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'farnic';
-
-  constructor(public global: GlobalService) {
-  }
-
 }
