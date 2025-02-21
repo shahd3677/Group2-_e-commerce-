@@ -1,0 +1,32 @@
+<div class="position-relative" id="sideBar">
+  <ul class="list-unstyled col-12 row">
+    <li routerLink="home" class="p-4 sideBar-link">
+      <img src="dashboard-logo.svg" alt="logo" class="col-7" />
+    </li>
+    <li
+      routerLink="home"
+      routerLinkActive="sideBar-link-active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      class="px-4 pt-4 pb-3 sideBar-link"
+    >
+      <i class="fa-solid fa-grip"></i> <span>dashboard</span>
+    </li>
+    <li
+      routerLink="customers"
+      routerLinkActive="sideBar-link-active"
+      class="px-4 pb-3 sideBar-link"
+    >
+      <i class="fa-solid fa-users"></i> <span>customers</span>
+    </li>
+    <li
+      routerLink="orders"
+      routerLinkActive="sideBar-link-active"
+      class="px-4 pb-3 sideBar-link"
+    >
+      <i class="fa-solid fa-truck"></i> <span>orders</span>
+    </li>
+    <li routerLink="/" class="position-absolute z-3 logout col-10">
+      <i class="fa-solid fa-right-from-bracket"></i> <span>log out</span>
+    </li>
+  </ul>
+</div>
