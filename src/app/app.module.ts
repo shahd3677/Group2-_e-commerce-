@@ -80,6 +80,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [
     provideHttpClient(withInterceptors([authInterceptorInterceptor]))

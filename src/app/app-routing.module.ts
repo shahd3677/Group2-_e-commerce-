@@ -31,7 +31,7 @@ const routes: Routes = [
   { path: 'reset', component: ResetComponent, title: 'Reset Password' },
   { path: 'forget', component: ForgetPasswordComponent, title: 'Forget Password' },
   { path: 'profile', component: ProfileComponent, title: 'User Profile' },
-  { path: 'logout', component: LogoutComponent, title: 'Logout' },
+  { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: "**", component: NotFoundComponent, title: '404 page' }
 ];
 
