@@ -8,6 +8,7 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { provideHttpClient } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
     CommonModule,
     AdminRoutingModule,
     NgxPaginationModule
-  ]
+  ],
+  providers: [provideHttpClient()]
 })
 export class AdminModule { }

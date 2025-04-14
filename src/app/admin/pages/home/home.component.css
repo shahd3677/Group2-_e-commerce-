@@ -1,5 +1,7 @@
 .section-header {
   color: rgb(50, 65, 81);
+  font-size: 28px;
+  font-weight: bold;
 }
 .custom-card {
   margin-right: 20px;
@@ -40,6 +42,14 @@ table {
       & th {
         color: white;
         background-color: #05ba81;
+        text-align: center;
+      }
+    }
+  }
+  & tbody {
+    & tr {
+      & td {
+        text-align: center;
       }
     }
   }
