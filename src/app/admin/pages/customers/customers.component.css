@@ -1,0 +1,49 @@
+.section-header {
+  color: rgb(50, 65, 81);
+  font-size: 28px;
+  font-weight: bold;
+}
+
+table {
+  & thead {
+    & tr {
+      & th {
+        color: white;
+        background-color: #05ba81;
+        text-align: center;
+      }
+    }
+  }
+  & tbody {
+    & tr {
+      & td {
+        text-align: center;
+      }
+    }
+  }
+}
+
+::ng-deep pagination-controls {
+  text-align: end;
+}
+::ng-deep pagination-controls .ngx-pagination {
+  border-radius: 5px;
+}
+
+::ng-deep pagination-controls .ngx-pagination a {
+  padding: 8px 12px;
+  background: white;
+  color: white;
+  text-decoration: none;
+}
+
+::ng-deep pagination-controls .ngx-pagination a:hover {
+  background: #05ba81;
+  color: white;
+}
+
+::ng-deep pagination-controls .ngx-pagination .current {
+  font-weight: bold;
+  background: #05ba81;
+  color: white;
+}

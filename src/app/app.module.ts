@@ -3,7 +3,7 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule, provideHttpClient } from '@angular/common/http';
+import { HttpClientModule, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -23,7 +23,6 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { LogosComponent } from './components/logos/logos.component';
 import { ProfileComponent } from './Account/profile/profile.component';
-import { LogoutComponent } from './Account/logout/logout.component';
 import { OrderComponent } from './Account/order/order.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { ProductsComponent } from './pages/products/products.component';
@@ -35,7 +34,8 @@ import { SingleProductComponent } from './pages/single-product/single-product.co
 import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 import { SortbySectionComponent } from './components/sortby-section/sortby-section.component';
-
+import { authInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -57,7 +57,6 @@ import { SortbySectionComponent } from './components/sortby-section/sortby-secti
     NewsletterComponent,
     LogosComponent,
     ProfileComponent,
-    LogoutComponent,
     OrderComponent,
     CartComponent,
     ProductsComponent,
@@ -80,9 +79,11 @@ import { SortbySectionComponent } from './components/sortby-section/sortby-secti
     HttpClientModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule,
+    CommonModule
   ],
   providers: [
-    provideHttpClient()
+    provideHttpClient(withInterceptors([authInterceptorInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

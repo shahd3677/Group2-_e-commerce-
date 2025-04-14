@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs/operators';
+import { AuthService } from '../services/auth.service';
 @Component({
   selector: 'app-navbar',
   standalone: false,
@@ -13,29 +14,18 @@ export class NavbarComponent implements OnInit {
   logoPage: string = '';
   image: string = '';
   pageTitle: string = '';
-  constructor(private _GlobalServices: GlobalService, private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private _GlobalServices: GlobalService, public _AuthServices:AuthService,private router:Router) {
 
   }
   ngOnInit(): void {
     this.logoPage = this._GlobalServices.logoPage
     this.image = this._GlobalServices.imgSection;
-    this.router.events
-      .pipe(
-        filter(event => event instanceof NavigationEnd), // للتأكد من أن الحدث هو نهاية التنقل
-        map(() => {
-          let child = this.activatedRoute.firstChild;
-          while (child) {
-            if (child.snapshot.data['title']) {
-              return child.snapshot.data['title'];
-            }
-            child = child.firstChild;
-          }
-          return 'Default Title'; // عنوان افتراضي إذا لم يكن هناك عنوان
-        })
-      )
-      .subscribe(title => {
-        this.pageTitle = title;
-      });
+  
+  }
+  handelLogout(){
+    localStorage.removeItem("userToken")
+    this._AuthServices.isLogin=false;
+    this.router.navigate(['/'])
   }
 }
 

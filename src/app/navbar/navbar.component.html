@@ -26,24 +26,20 @@
 
     <div class="collapse navbar-collapse  " id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0  pe-5">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
           <a class="nav-link link" aria-current="page"
             [routerLink]="['/home']">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
           <a class="nav-link link" [routerLink]="['/about']">About</a>
         </li>
-
-        <li class="nav-item">
-          <a class="nav-link link" [routerLink]="['/category']">Category</a>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
           <a class="nav-link link" [routerLink]="['/shop']">Shop</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
           <a class="nav-link link" [routerLink]="['/blog']">Blog</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
           <a class="nav-link link" [routerLink]="['/contact']">Contact</a>
         </li>
 
@@ -64,18 +60,18 @@
               class="fa-solid fa-user border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis "></i></a>
            
             <ul class="dropdown-menu p-0">
-              <li><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
-              <li><a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive=" router-link-active  " > User Profile</a></li>
-              <li><a class="dropdown-item" [routerLink]="['/']" routerLinkActive="  "  >Logout</a></li>
+              <li *ngIf="this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive=" router-link-active  " > User Profile</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item " (click)="handelLogout()" >Logout</a></li>
             </ul>
           </li>
           <button type="button" class="btn border-0 position-relative">
            
             <i
-              class="fa-solid fa-cart-shopping border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis"></i>
+              class="fa-solid fa-cart-shopping border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis" [routerLink]="['/cart']"></i>
             <span
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-              99+
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+              
               <span class="visually-hidden">unread messages</span>
             </span>
           </button></div>
