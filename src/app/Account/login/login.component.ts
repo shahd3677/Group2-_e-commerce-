@@ -18,7 +18,7 @@ formLogin: FormGroup = new FormGroup({
 })
 constructor(private _AuthService: AuthService,private toastr: ToastrService,private router:Router){
   if(localStorage.getItem("userToken")){
-    this.router.navigate(['/'])
+    this.router.navigate(['/login'])
   }
 }
  handle(form:FormGroup){

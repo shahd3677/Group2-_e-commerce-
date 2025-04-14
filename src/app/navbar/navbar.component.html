@@ -60,9 +60,9 @@
               class="fa-solid fa-user border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis "></i></a>
            
             <ul class="dropdown-menu p-0">
-              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
-              <li *ngIf="this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive=" router-link-active  " > User Profile</a></li>
-              <li *ngIf="this._AuthServices.isLogin"><a class="dropdown-item " (click)="handelLogout()" >Logout</a></li>
+              <li *ngIf="this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive=" router-link-active  " > User Profile</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item " (click)="handelLogout()" >Logout</a></li>
             </ul>
           </li>
           <button type="button" class="btn border-0 position-relative">
