@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.logoPage = this._GlobalServices.logoPage
     this.image = this._GlobalServices.imgSection;
-    
+  
   }
   handelLogout(){
     localStorage.removeItem("userToken")
