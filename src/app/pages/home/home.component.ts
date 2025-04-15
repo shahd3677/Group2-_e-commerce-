@@ -18,11 +18,7 @@ export class HomeComponent {
   ngOnInit() {
     this.isLoading = true
     this.product.getAllCategories().subscribe((res) => {
-
-
       this.Categories = res
-
-
     })
     this.product.getLimitedProducts().subscribe((res) => {
       if (res) {
