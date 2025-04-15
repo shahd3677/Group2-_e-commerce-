@@ -3,6 +3,10 @@ a {
   text-decoration: none;
   color: black;
 }
+/* carousel section */
+.bg-sec1{
+  background-color: #fcf5ee;
+}
 
 /* !New Collection */
 #new-collection .row{
