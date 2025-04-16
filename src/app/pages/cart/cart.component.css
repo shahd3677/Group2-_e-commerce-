@@ -1,8 +1,0 @@
-table {
-    border-collapse: separate;
-    border-spacing: 10px; /* تباعد بين الصفوف والأعمدة */
-  }
-
-td{
-    padding: 15px !important;
-}
