@@ -1,0 +1,187 @@
+<!-- Flash sale -->
+<!--  <section class="py-2 bg-sec1">
+   <div class="container">
+    <div class="w-100 text-center desc-text">
+      <p>Flash sale is going on upto 75%</p>
+      <hr/>
+    </div>
+  </div>
+</section> -->
+
+<!-- carousel section -->
+<section class="position-relative py-5 bg-sec1">
+  <div class="container py-5">
+  <div class="row">
+
+
+  </div>
+  </div>
+  </section>
+
+
+  <!-- !New Collection -->
+  <div id="new-collection" class="pb-3">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="image-container">
+          <img
+            class="w-100"
+            src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d5445434f182fe9eb22b0e_banner-style-1.jpg"
+            alt="prod-chair"
+          />
+          <div class="overlay-text m-5">
+            <h2>New Collection</h2>
+            <h1>Accent Leisure Chairs</h1>
+            <p >
+              Lorem ipsum dolor sit amet, consectetur scelerisque a tincidunt urna
+              quam
+            </p>
+            <button class="shop-now" routerLink="/shop">Shop Now</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="image-container">
+          <img
+            class="w-100"
+            src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d544ae869dc4bb99a2edd4_banner-style-2.png"
+            alt="prod-chair"
+          />
+          <div class="overlay-text"> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--!  Choose Your Category -->
+  <div class="container py-5">
+    <div class="text-center">
+      <h2>Choose Your Category</h2>
+      <p class="text-secondary fs-6 fw-mediam">Select your product from our category options</p>
+    </div>
+
+    <div class="row justify-content-center  m-5">
+      <div class="col-4 col-lg-2" routerLink="/category/{{category}}" *ngFor="let category of Categories">
+        <div class="category-box mb-5 ">
+          <img class=""
+            src="https://cdn.prod.website-files.com/62d3e80a683aff1e46a03314/62d639d629b7a91be9e8c194_product-catagory-chair.png"
+            alt="Chair"
+          />
+          <div class="category-title">{{category}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+   <!-- !Featured Collections  -->
+  <section id="featured_collections">
+    <div class="container">
+      <div class="row gy-3 gx-5">
+
+     <div class="d-flex justify-content-between mb-3">
+       <div>
+         <h2 class="section_title">Featured Collections</h2>
+        <p class="section_text">Most Selling and Trending Product</p>
+        </div>
+        <a routerLink="/shop" class="d-inline-block mw-100">
+         <img class="pt-5 pe-5" src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62ea1423156de824e4b17de4_go-text-link-image.svg" alt="">
+        </a>
+     </div>
+
+     <!-- عرض الـ Spinner أثناء تحميل البيانات -->
+  <div *ngIf="isLoading" class="col-12 text-center">
+    <ngx-spinner
+      bdColor="rgba(0, 0, 0, 0.8)"
+      size="medium"
+      color="white"
+      type="ball-spin"
+      [fullScreen]="true"
+    >
+      <p style="color: white"> Loading... </p>
+    </ngx-spinner>
+  </div>
+
+    <!-- عرض المنتجات بعد انتهاء التحميل -->
+   <ng-container *ngIf="!isLoading">
+     <div class="col-6 col-lg-4" *ngFor="let product of LimitedProducts">
+      <app-product-section [productInfo]="product"></app-product-section>
+   </div>
+   </ng-container>
+      </div>
+    </div>
+  </section>
+
+
+    <!-- Best section-->
+  <app-best-section></app-best-section>
+
+
+  <!-- View ALL -->
+  <div id="viewAll" class="container mt-5">
+    <div class="row g-5">
+      <div class="col-md-3 position-relative ">
+        <img  class="w-100"
+          src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d79f5a27f744f61aa8824f_banner-style-4.jpg"
+          alt="##"
+        />
+        <div class="position-absolute banner-viewall-1">
+         <h3>Drawers</h3>
+         <a routerLink="/shop">View All</a>
+        </div>
+      </div>
+      <div class="col-md-6 position-relative ">
+        <img class="w-100 "
+          src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d79f47664289627eee731e_banner-style-5.jpg"
+          alt="##"
+        />
+        <div class="position-absolute banner-viewall-2">
+         <p>START FROM <span class="fw-bolder"> $165</span></p>
+         <h3>New Bed Collections</h3>
+         <a routerLink="/shop">View All</a>
+        </div>
+      </div>
+      <div class="col-md-3 position-relative">
+        <img class="w-100"
+          src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d79f6a27f7441ae6a88362_banner-style-6.jpg"
+          alt="##"
+        />
+        <div class="position-absolute banner-viewall-3 w-100 text-center">
+         <h3>Carenchy Sofa</h3>
+         <a routerLink="/shop">View All</a>
+        </div>
+      </div>
+      <div class="col-md-7 position-relative">
+        <img class="w-100"
+          src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d79f121eccaf02c90875ea_banner-style-7.jpg"
+          alt="##"
+        />
+        <div class="position-absolute banner-viewall-4">
+         <p>MEGA SALE<span class="fw-bolder p-1">65% OFF</span></p>
+         <h3>New Sofa Collections</h3>
+         <a routerLink="/shop">View All</a>
+        </div>
+      </div>
+      <div class="col-md-5 position-relative">
+        <img class="w-100"
+          src="https://cdn.prod.website-files.com/62d243bdaa648f8b5efa8fc1/62d79f021eccaf7af808759e_banner-style-8.jpg"
+          alt="##"
+        />
+        <div class="position-absolute banner-viewall-5 me-3">
+         <p>START FROM<span class="fw-bolder p-1">$65</span></p>
+         <h3>Storage Cabinet</h3>
+         <a routerLink="/shop">View All</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- !start-infinite-logo-carousel  -->
+  <app-logos></app-logos>
+
+
+  <!-- Newletter section-->
+  <app-newsletter></app-newsletter>
+

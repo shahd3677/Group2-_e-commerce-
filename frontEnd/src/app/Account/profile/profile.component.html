@@ -1,0 +1,74 @@
+<div class="container  py-5">
+    <div class="title d-flex justify-content-between my-5 ">
+        <h3><a [routerLink]="['/home']"
+                class="text-secondary me-2 text-decoration-none">Home</a> / My
+            Account</h3>
+        <h3>Welcome <span
+                class="text-danger">{{firstName}}</span></h3>
+    </div>
+    <div class="row">
+        <div class="col-md-3 ">
+            <label class=" text-primary">Manage My Account</label>
+            <ul>
+                <li class="my-2" >My Profile</li>
+                <li class="my-2"> Address Book</li>
+                <li class="my-2"> My Payment Options</li>
+            </ul>
+            <label ><a routerLink="/order" class="text-decoration-none">My Orders</a></label>
+            <ul >
+                <li class="my-2">My Returns</li>
+                <li class="my-2">
+                    My Cancellations</li>
+            </ul>
+            <label ><a class=" text-decoration-none">My WishList</a></label>
+        </div>
+     <div class="col-md-9 d-flex h-100 shadow  ">
+        <div class="col-md-3  border border-light rounded-circle  m-5  shadow-sm  d-flex justify-content-center align-items-center flex-column" style="height: 15rem;">
+            <i class="fa-solid fa-cloud-arrow-up fa-4x text-danger " id="icon-upload" (click)="userImage()" ></i>
+            <input type="file" name="img" id="img" class="form-control " (change)=" handleFile($event)" hidden>
+            <img [src]="imgUrl" alt="" class="w-100 h-100 rounded-circle " [hidden]="!imgUrl">
+        </div>
+        <div class="col-md-6  profile h-50 w-50">
+           <div class="m-4">
+            <label class="text-danger" >Edit Your Profile</label>
+            <form  class="my-3">
+              <div class="d-flex justify-content-between gap-2">
+                <div class="d-flex flex-column w-50 ">
+                    <label for="f-name " class="my-2">First Name</label>
+                    <input type="text" name="F_Name" [value]="firstName" id="f-name" class="form-control">
+                </div>
+                <div class="d-flex flex-column w-50">
+                    <label for="l-name " class="my-2">Last Name</label>
+                    <input type="text" name="l_Name" [value]="lastName" id="l-name" class="form-control">
+                </div>
+              </div>
+              <div class="d-flex flex-column my-2">
+                <label for="email " class="my-2">Email</label>
+                <input type="email" name="email" [value]="userEmail" id="email" class="form-control">
+            </div>
+            <div class="d-flex flex-column my-2">
+                <label class="my-2" >Password Changes</label>
+                <div class="my-1">
+                    <input  type="password"    placeholder="Current Password" class="form-control">
+                   
+                </div>
+                <div  class="my-1">
+                    <input  type="password"    placeholder="New Passwod" class="form-control">
+                   
+                </div>
+                <div  class="my-1">
+                    <input  type="password"    placeholder="Confirm New Passwod" class="form-control">
+                   
+                </div>
+                <div class="align-self-end my-3">
+                    <button class="border-0 bg-white me-3">Cancel
+                        </button>
+                        <button class=" border rounded-2 px-2 py-1 border-danger text-white bg-danger">Save Changes</button>
+                </div>
+            </div>
+            </form>
+           </div>
+        </div>
+     </div>
+    </div>
+</div>

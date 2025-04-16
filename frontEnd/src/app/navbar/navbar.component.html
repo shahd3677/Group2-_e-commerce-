@@ -1,0 +1,81 @@
+ <nav
+  class="navbar navbar-expand-lg flex-column position-absolute top-10 z-2 w-100">
+  <div class="container ">
+    <a class="navbar-brand  " href="#">
+      <img [src]="logoPage" alt="Bootstrap">
+    </a>
+    <div
+      class="visually-hidden hidden mx-2 d-flex justify-content-between align-items-center">
+      <i
+        class="fa-solid fa-user border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis "></i>
+      <button type="button" class="btn border-0 position-relative">
+        <i
+          class="fa-solid fa-cart-shopping border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis"></i>
+        <span
+          class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+          99+
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse  " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0  pe-5">
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
+          <a class="nav-link link" aria-current="page"
+            [routerLink]="['/home']">Home</a>
+        </li>
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
+          <a class="nav-link link" [routerLink]="['/about']">About</a>
+        </li>
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
+          <a class="nav-link link" [routerLink]="['/shop']">Shop</a>
+        </li>
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
+          <a class="nav-link link" [routerLink]="['/blog']">Blog</a>
+        </li>
+        <li class="nav-item" *ngIf="this._AuthServices.isLogin">
+          <a class="nav-link link" [routerLink]="['/contact']">Contact</a>
+        </li>
+
+      </ul>
+      <form class="d-flex align-items-center " role="search">
+        <div class="d-flex justify-content-between position-relative"> <input
+            class="form-control me-2 rounded-0 " type="search"
+            placeholder="Search" aria-label="Search">
+          <button type="submit"
+            class="btn border-0 position-absolute end-0 top-0"><i
+              class="fa-solid fa-magnifying-glass mx-5"></i></button></div>
+        <div
+          class="hidden-show mx-2 d-flex justify-content-between align-items-center">
+        
+          <li class="nav-item dropdown  mx-2 list-unstyled">
+            <a class="nav-link dropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i
+
+              class="fa-solid fa-user border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis "></i></a>
+           
+            <ul class="dropdown-menu p-0">
+              <li *ngIf="this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/login']" routerLinkActive=" router-link-active  " >Login</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item"  [routerLink]="['/profile']" routerLinkActive=" router-link-active  " > User Profile</a></li>
+              <li *ngIf="!this._AuthServices.isLogin"><a class="dropdown-item " (click)="handelLogout()" >Logout</a></li>
+            </ul>
+          </li>
+          <button type="button" class="btn border-0 position-relative">
+           
+            <i
+              class="fa-solid fa-cart-shopping border rounded-5 d-flex justify-content-center align-items-center p-2 text-light-emphasis" [routerLink]="['/cart']"></i>
+            <span
+              class="position-absolute top-0 start-100 translate-middle badge rounded-pill ">
+              
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </button></div>
+      </form>
+    </div>
+  </div>
+</nav>
