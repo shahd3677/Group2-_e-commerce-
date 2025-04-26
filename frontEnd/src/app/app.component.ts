@@ -13,12 +13,12 @@ export class AppComponent {
   title = 'farnic';
 
   constructor(public global: GlobalService,private router:Router,private _AuthServices:AuthService) {
-    let token=localStorage.getItem("userToken")
-    if(!token){
-      this.router.navigate(['/login'])
-      this._AuthServices.isLogin=false
-    }else{
-      this._AuthServices.isLogin=true
-    }
+    // let token=localStorage.getItem("userToken")
+    // if(!token){
+    //   this.router.navigate(['/login'])
+    //   this._AuthServices.isLogin=false
+    // }else{
+    //   this._AuthServices.isLogin=true
+    // }
   }
 }

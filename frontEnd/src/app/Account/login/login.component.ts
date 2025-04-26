@@ -17,9 +17,9 @@ formLogin: FormGroup = new FormGroup({
   password: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]), // كلمة مرور مكونة من 6 أرقام فقط
 })
 constructor(private _AuthService: AuthService,private toastr: ToastrService,private router:Router){
-  if(localStorage.getItem("userToken")){
-    this.router.navigate(['/login'])
-  }
+  // if(localStorage.getItem("userToken")){
+  //   this.router.navigate(['/login'])
+  // }
 }
  handle(form:FormGroup){
   if(form.valid){
