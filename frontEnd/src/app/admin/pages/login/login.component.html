@@ -1,0 +1,67 @@
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div
+      class="col-lg-10 bg-white shadow rounded-4 p-0 d-flex flex-lg-row flex-column overflow-hidden"
+    >
+      <!-- Left image -->
+      <div class="col-lg-6 p-0 d-none d-lg-block">
+        <img
+          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+          alt="dashboard"
+          class="img-fluid w-100 h-100"
+          style="object-fit: cover; min-height: 100%"
+        />
+      </div>
+      <!-- Login form -->
+      <div
+        class="col-lg-6 col-12 p-5 d-flex flex-column justify-content-center"
+      >
+        <h2 class="mb-4">Login</h2>
+        <form>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              [(ngModel)]="email"
+              name="email"
+              placeholder="Email"
+              value="admin@gmail.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              [(ngModel)]="password"
+              name="password"
+              placeholder="Password"
+              value="123456"
+            />
+          </div>
+          <button class="btn btn-success w-100 mb-3" type="submit">
+            Login
+          </button>
+        </form>
+        <hr />
+        <button
+          class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-center"
+        >
+          <i class="bi bi-facebook me-2"></i> Login With Facebook
+        </button>
+        <button
+          class="btn btn-outline-secondary w-100 mb-3 d-flex align-items-center justify-content-center"
+        >
+          <i class="bi bi-google me-2"></i> Login With Google
+        </button>
+        <div class="text-start">
+          <a href="#" class="d-block link-success small mb-1"
+            >Forgot your password</a
+          >
+          <a href="#" class="d-block link-success small">Create account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

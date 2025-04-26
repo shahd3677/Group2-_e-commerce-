@@ -1,11 +1,26 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+const staff_routes = require("./routers/staff_route");
+dotenv.config({ path: "./Config.env" });
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+
+app.use(express.json());
+
+app.use("/staff", staff_routes);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
+mongoose
+  .connect(process.env.MONGODB_URI)
+  .then(() => console.log("connection is ok"))
+  .catch((err) => console.log(err));
+
 app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+  console.log(`Server is running ${port}`);
 });
