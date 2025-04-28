@@ -8,12 +8,12 @@ const verifyToken = (req, res, next) => {
       req.staff = decode;
       next();
     } catch (error) {
-      return res.json({
+      return res.status(401).json({
         message: "your session is expired, please login again",
       });
     }
   } else {
-    return res.json({ message: "please login" });
+    return res.status(401).json({ message: "you are not authorized" });
   }
 };
 const verifyAuthorization = (req, res, next) => {
@@ -21,7 +21,7 @@ const verifyAuthorization = (req, res, next) => {
     if (req.params.id === req.staff.id || req.staff.role === "admin") {
       next();
     } else {
-      return res.json({ message: "you are not authorized" });
+      return res.status(401).json({ message: "you are not authorized" });
     }
   });
 };
@@ -30,7 +30,7 @@ const verifyAdmin = (req, res, next) => {
     if (req.staff.role === "admin") {
       next();
     } else {
-      return res.json({ message: "you are not authorized" });
+      return res.status(401).json({ message: "you are not authorized" });
     }
   });
 };

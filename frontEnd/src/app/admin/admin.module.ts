@@ -8,11 +8,10 @@ import { OrdersComponent } from './pages/orders/orders.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { FormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StaffComponent } from './pages/staff/staff.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,12 +20,14 @@ import { FormsModule } from '@angular/forms';
     HomeComponent,
     SidebarComponent,
     LoginComponent,
+    StaffComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     NgxPaginationModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [provideHttpClient()]
 })

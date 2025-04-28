@@ -19,13 +19,20 @@
       <i class="fa-solid fa-users"></i> <span>customers</span>
     </li>
     <li
+      routerLink="staff"
+      routerLinkActive="sideBar-link-active"
+      class="px-4 pb-3 sideBar-link"
+    >
+      <i class="fa-solid fa-users"></i> <span>Staff</span>
+    </li>
+    <li
       routerLink="orders"
       routerLinkActive="sideBar-link-active"
       class="px-4 pb-3 sideBar-link"
     >
       <i class="fa-solid fa-truck"></i> <span>orders</span>
     </li>
-    <li routerLink="/" class="position-absolute z-3 logout col-10">
+    <li class="position-absolute z-3 logout col-10" (click)="handlerLogout()">
       <i class="fa-solid fa-right-from-bracket"></i> <span>log out</span>
     </li>
   </ul>

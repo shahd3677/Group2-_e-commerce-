@@ -36,6 +36,7 @@ import { ForgetPasswordComponent } from './Account/forget-password/forget-passwo
 import { SortbySectionComponent } from './components/sortby-section/sortby-section.component';
 import { authInterceptorInterceptor } from './interceptor/auth-interceptor.interceptor';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { adminInterceptor } from './admin/interceptor/admin.interceptor';
 
 
 
@@ -83,7 +84,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
 
   ],
   providers: [
-    provideHttpClient(withInterceptors([authInterceptorInterceptor]))
+    provideHttpClient(withInterceptors([authInterceptorInterceptor, adminInterceptor]))
   ],
   bootstrap: [AppComponent]
 })

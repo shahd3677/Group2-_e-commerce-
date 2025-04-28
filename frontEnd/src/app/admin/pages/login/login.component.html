@@ -6,10 +6,9 @@
       <!-- Left image -->
       <div class="col-lg-6 p-0 d-none d-lg-block">
         <img
-          src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
-          alt="dashboard"
-          class="img-fluid w-100 h-100"
-          style="object-fit: cover; min-height: 100%"
+          src="login-office-JBFguH2f.jpeg"
+          alt="dashboard image"
+          class="img-fluid w-100 h-100 img-login"
         />
       </div>
       <!-- Login form -->
@@ -17,50 +16,44 @@
         class="col-lg-6 col-12 p-5 d-flex flex-column justify-content-center"
       >
         <h2 class="mb-4">Login</h2>
-        <form>
+        <form [formGroup]="loginForm" (ngSubmit)="handlerLogin()">
           <div class="mb-3">
             <label class="form-label">Email</label>
             <input
               type="email"
               class="form-control"
-              [(ngModel)]="email"
-              name="email"
+              formControlName="email"
               placeholder="Email"
-              value="admin@gmail.com"
             />
+          </div>
+          <div
+            class="text-danger mb-3"
+            *ngIf="isSubmitted && emailControl.invalid"
+          >
+            <p *ngIf="emailControl.errors?.['required']">Email is required</p>
+            <p *ngIf="emailControl.errors?.['email']">Invalid Email</p>
           </div>
           <div class="mb-3">
             <label class="form-label">Password</label>
             <input
               type="password"
               class="form-control"
-              [(ngModel)]="password"
-              name="password"
+              formControlName="password"
               placeholder="Password"
-              value="123456"
             />
+          </div>
+          <div
+            class="text-danger mb-3"
+            *ngIf="isSubmitted && passwordControl.invalid"
+          >
+            <p *ngIf="passwordControl.errors?.['required']">
+              password is required
+            </p>
           </div>
           <button class="btn btn-success w-100 mb-3" type="submit">
             Login
           </button>
         </form>
-        <hr />
-        <button
-          class="btn btn-outline-secondary w-100 mb-2 d-flex align-items-center justify-content-center"
-        >
-          <i class="bi bi-facebook me-2"></i> Login With Facebook
-        </button>
-        <button
-          class="btn btn-outline-secondary w-100 mb-3 d-flex align-items-center justify-content-center"
-        >
-          <i class="bi bi-google me-2"></i> Login With Google
-        </button>
-        <div class="text-start">
-          <a href="#" class="d-block link-success small mb-1"
-            >Forgot your password</a
-          >
-          <a href="#" class="d-block link-success small">Create account</a>
-        </div>
       </div>
     </div>
   </div>

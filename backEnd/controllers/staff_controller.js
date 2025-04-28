@@ -29,14 +29,15 @@ const add_staff = async (req, res) => {
 const login_staff = async (req, res) => {
   try {
     const { error } = login_staff_validation.validate(req.body);
-    if (error) return res.json({ message: error.details[0].message });
+    if (error)
+      return res.status(400).json({ message: error.details[0].message });
     else {
       const body = _.pick(req.body, ["email", "password"]);
-      if (!body) return res.json({ message: "missing data" });
+      if (!body) return res.status(400).json({ message: "missing data" });
       else {
         const staff = await staffModule.by_email(body.email);
         if (!staff)
-          return res.json({
+          return res.status(400).json({
             message: "Invalid Login. Check your E-mail or password",
           });
         else {
@@ -45,7 +46,7 @@ const login_staff = async (req, res) => {
             staff.password
           );
           if (!isPasswordValid)
-            return res.json({
+            return res.status(400).json({
               message: "Invalid Login. Check your E-mail or password",
             });
           else {

@@ -1,31 +1,30 @@
-<section class="col-12">
+<section>
   <div class="container">
     <h5 class="mt-5 section-header">Customer</h5>
-    <table class="table mt-5 col-12">
+    <table class="table mt-5">
       <thead>
         <tr>
           <th>ID</th>
           <th>NAME</th>
           <th>EMAIL</th>
-          <th>PHONE</th>
           <!-- <th>ADDRESS</th> -->
         </tr>
       </thead>
       <tbody>
         <tr
           *ngFor="
-            let user of users
-              | paginate : { itemsPerPage: 10, currentPage: page }
+            let user of staff
+              | paginate : { itemsPerPage: 10, currentPage: page };
+            let i = index
           "
         >
-          <td>{{ user.id }}</td>
-          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
-          <td>{{ user.phone }}</td>
           <!-- <td>
-            {{ user.address.address }}, {{ user.address.city }},
-            {{ user.address.country }}
-          </td> -->
+              {{ user.address.address }}, {{ user.address.city }},
+              {{ user.address.country }}
+            </td> -->
         </tr>
       </tbody>
     </table>

@@ -1,3 +1,8 @@
 body {
   background-color: #f8f9fa;
 }
+
+.img-login {
+  object-fit: cover;
+  min-height: 100%;
+}
