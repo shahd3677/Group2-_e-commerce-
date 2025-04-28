@@ -14,11 +14,11 @@ import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { authGuard } from './guard/auth.guard';
+
 
 
 const routes: Routes = [
-  { path: '', redirectTo: "/home", pathMatch: "full" },
+  { path: '', redirectTo: "home", pathMatch: "full" },
   { path: 'home', component: HomeComponent, title: 'Home Farnic' },
   { path: 'about', component: AboutComponent, title: 'About Farnic' },
   { path: 'contact', component: ContactComponent, title: 'Contact us' },
