@@ -4,7 +4,7 @@ const dotenv = require("dotenv");
 const cors = require("cors");
 const staff_routes = require("./routers/staff_route");
 const productpath = require('./routers/products')
-const categorypath = require('./routers/categories')
+//const categorypath = require('./routers/categories')
 
 
 dotenv.config({ path: "./Config.env" });
