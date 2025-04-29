@@ -1,0 +1,28 @@
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.btn-outline-primary {
+  align-self: flex-start;
+}
+
+.mt-auto {
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 12px;
+}

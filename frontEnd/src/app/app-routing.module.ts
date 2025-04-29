@@ -15,6 +15,7 @@ import { ForgetPasswordComponent } from './Account/forget-password/forget-passwo
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { OrderComponent } from './Account/order/order.component'
 
 
 
@@ -27,13 +28,14 @@ const routes: Routes = [
   { path: 'single-product/:productID', component: SingleProductComponent, title: 'Product Details' },
   { path: 'category/:catTitle', component: ProductsCategoryComponent, title: 'Products Cateory' },
   { path: 'blog', component: BlogsComponent, title: 'Our Blogs' },
-   { path: 'login', component: LoginComponent, title: 'Login' },
+  { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'register', component: RegisterComponent, title: 'Register' },
   { path: 'reset', component: ResetComponent, title: 'Reset Password' },
   { path: 'forget', component: ForgetPasswordComponent, title: 'Forget Password' },
   { path: 'profile', component: ProfileComponent, title: 'User Profile' },
   { path: 'cart', component: CartComponent, title: 'Our Cart' },
-  {path: 'checkout', component:CheckoutComponent , title: 'Checkout'},
+  { path: 'checkout', component: CheckoutComponent, title: 'Checkout' },
+  { path: 'order', component: OrderComponent, title: 'Orders' },
   { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: "**", component: NotFoundComponent, title: '404 page' }
 ];
