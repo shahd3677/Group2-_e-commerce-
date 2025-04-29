@@ -1,7 +1,7 @@
 const joi = require("joi");
 
 const new_staff_validation = joi.object({
-  name: joi.string().trim().required(),
+  name: joi.string().trim().required().min(3),
   password: joi.string().trim().required().min(6),
   email: joi.string().required().trim().email(),
   role: joi.string().trim(),

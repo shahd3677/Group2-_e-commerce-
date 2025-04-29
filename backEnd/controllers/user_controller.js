@@ -1,15 +1,22 @@
-const userModel = require("../models/userModel.js");
+const userModel = require("../modules/user_module");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config({ path: "../Config.env" });
 
 // addUser
 const createUser = async (req, res, next) => {
   const { name, email, password, phone, _id } = req.body;
-  let user = await userModel.findOne({ email });
+  let user = await userModel.findOne({ email: email });
   if (user) return res.status(404).json({ message: "Email already exists" });
   try {
-    const hashedPassword = await bcrypt.hash(password, parseInt(process.env.saltRounds));
-    const token = jwt.sign({ id: _id }, process.env.SecretTOKEN, { expiresIn: "7h" });
+    const hashedPassword = await bcrypt.hash(
+      password,
+      parseInt(process.env.SALT)
+    );
+    const token = jwt.sign({ id: _id }, process.env.SECRETKEY, {
+      expiresIn: "7h",
+    });
 
     const newUser = new userModel({
       name,
@@ -19,7 +26,9 @@ const createUser = async (req, res, next) => {
     });
     const users = await newUser.save();
 
-    res.status(201).json({ message: "User created successfully", user: users, token });
+    res
+      .status(201)
+      .json({ message: "User created successfully", user: users, token });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -68,7 +77,10 @@ const updateUser = async (req, res, next) => {
     if (phone) user.phone = phone;
 
     if (password) {
-      const hashedPassword = await bcrypt.hash(password, parseInt(process.env.saltRounds));
+      const hashedPassword = await bcrypt.hash(
+        password,
+        parseInt(process.env.saltRounds)
+      );
       user.password = hashedPassword;
     }
 
@@ -102,5 +114,5 @@ module.exports = {
   getAllUser,
   getUser,
   updateUser,
-  deleteUser
+  deleteUser,
 };

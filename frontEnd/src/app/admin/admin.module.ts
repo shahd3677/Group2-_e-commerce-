@@ -12,6 +12,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StaffComponent } from './pages/staff/staff.component';
+import { AddStaffComponent } from './pages/staff/forms/add-staff/add-staff.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -21,6 +22,7 @@ import { StaffComponent } from './pages/staff/staff.component';
     SidebarComponent,
     LoginComponent,
     StaffComponent,
+    AddStaffComponent,
   ],
   imports: [
     CommonModule,
