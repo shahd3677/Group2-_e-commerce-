@@ -15,17 +15,14 @@
         <tr
           *ngFor="
             let user of users
-              | paginate : { itemsPerPage: 10, currentPage: page }
+              | paginate : { itemsPerPage: 10, currentPage: page };
+            let i = index
           "
         >
-          <td>{{ user.id }}</td>
-          <td>{{ user.firstName }} {{ user.lastName }}</td>
+          <td>{{ i + 1 }}</td>
+          <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
           <td>{{ user.phone }}</td>
-          <!-- <td>
-            {{ user.address.address }}, {{ user.address.city }},
-            {{ user.address.country }}
-          </td> -->
         </tr>
       </tbody>
     </table>

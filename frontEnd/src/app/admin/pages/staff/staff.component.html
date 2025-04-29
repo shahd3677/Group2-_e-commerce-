@@ -1,6 +1,14 @@
 <section>
   <div class="container">
-    <h5 class="mt-5 section-header">Customer</h5>
+    <h5 class="mt-5 section-header">Staff</h5>
+    <button
+      class="btn btn-primary Add"
+      data-bs-toggle="modal"
+      data-bs-target="#addOne"
+    >
+      Add Staff
+    </button>
+
     <table class="table mt-5">
       <thead>
         <tr>
@@ -31,3 +39,74 @@
     <pagination-controls (pageChange)="page = $event"> </pagination-controls>
   </div>
 </section>
+
+<div class="modal fade" id="addOne" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Staff</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addForm" (ngSubmit)="handlerAdd()">
+          <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" formControlName="name" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" formControlName="email" />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="form-label d-block">Role</label>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="role"
+                id="admin"
+                value="admin"
+              />
+              <label class="form-check-label" for="admin">admin</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                formControlName="role"
+                id="product"
+                value="product"
+              />
+              <label class="form-check-label" for="product">product</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              #closeModalBtn
+            >
+              Cancel
+            </button>
+            <button type="submit" class="btn btn-success">Add Staff</button>
+          </div>
+          <button type="submit" class="btn btn-success">Add Staff</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

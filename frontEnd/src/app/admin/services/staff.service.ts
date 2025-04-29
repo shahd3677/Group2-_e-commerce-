@@ -17,4 +17,7 @@ export class StaffService {
   getStaff(): Observable<any> {
     return this.http.get(`${this.baseURL}/`)
   }
+  addStaff(body: any): Observable<any> {
+    return this.http.post(`${this.baseURL}/`, body)
+  }
 }
