@@ -1,4 +1,4 @@
-const userModel = require("../models/userModel.js");
+const userModel = require("../modules/user_module");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { sendEmailFunction } = require("../utilits/sendEmail.js");
@@ -52,28 +52,33 @@ const login = async (req, res, next) => {
 };
 
 // login with google
-const sendEmail = async (req, res, next) => {
-  const { name, email } = req.body;
+ const sendEmail = async (req, res, next) => {
+  const { email } = req.body;
+
   if (!email) {
     return res.status(400).json({ message: "Email is required" });
   }
 
-  let user = await userModel.findOne({ email });
-  if (!user) {
-    user = await userModel.create({ email, name });
-  }
-
-  const token = jwt.sign({ id: user._id }, process.env.SecretTOKEN, { expiresIn: '7h' });
-  const urlLogin = `${process.env.PORT}/${token}`;
-
   try {
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const token = jwt.sign({ id: user._id }, process.env.SecretTOKEN, {
+      expiresIn: "1h"
+    });
+
+    const url = `${process.env.BASE_URL}/reset-password/${token}`;
+
     await sendEmailFunction({
       to: user.email,
       subject: "Reset your password",
-      text: `Click the link to reset your password: ${urlLogin}`,
+      text: `Click the link below to reset your password:\n${url}`
     });
 
-    res.status(200).json({ message: "Email sent successfully", user, token });
+    res.status(200).json({ message: "Email sent successfully", token });
   } catch (error) {
     next(error);
   }
@@ -99,28 +104,26 @@ const forgetPassword = async (req, res, next) => {
       text: `Your reset password code is ${resetCode}`,
     });
     let resetToken=jwt.sign({ id: user._id }, process.env.SecretTOKEN, { expiresIn: '10m' });
-    return res.status(200).json({ message: "Reset code sent to your email", resetToken });
+    return res.status(200).json({ message: "Reset code sent to your email", resetToken,resetCode });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 };
 
 // resetPassword
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
-import { userModel } from "../models/userModel.js";
-
-export const resetPassword = async (req, res, next) => {
+const resetPassword = async (req, res, next) => {
   const { resetCode, password } = req.body;
   let resetToken = "";
 
   try {
+    // التأكد من وجود التوكن في الهيدر
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
       resetToken = req.headers.authorization.split(" ")[1];
     } else {
       return res.status(400).json({ message: "You can't do this action" });
     }
 
+    // فك تشفير التوكن
     const decoded = jwt.verify(resetToken, process.env.SecretTOKEN);
     const user = await userModel.findOne({ _id: decoded.id }); 
 
@@ -128,19 +131,27 @@ export const resetPassword = async (req, res, next) => {
       return res.status(400).json({ message: "Verify your reset code first" });
     }
 
+    // التحقق من صحة resetCode وصلاحيته
     if (user.resetCode !== resetCode || Date.now() > user.resetCodeExpire) {
       return res.status(400).json({ message: "Invalid or expired reset code" });
     }
 
+    // تشفير كلمة المرور الجديدة
     const hashedPassword = await bcrypt.hash(password, parseInt(process.env.saltRounds));
     user.password = hashedPassword;
+
+    // إزالة الكود بعد التغيير
     user.resetCode = undefined;
     user.resetCodeExpire = undefined;
 
+    // حفظ التغييرات في قاعدة البيانات
     await user.save();
 
+    // إرجاع رد ناجح
     res.status(200).json({ message: "Password reset successfully", user });
   } catch (error) {
+    // إذا حصل خطأ أثناء التنفيذ، إرجاع رسالة خطأ
+    console.error("Error during password reset:", error); // لمساعدتك في تتبع الأخطاء
     res.status(500).json({ error: error.message });
   }
 };

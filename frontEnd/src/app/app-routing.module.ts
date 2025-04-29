@@ -14,6 +14,7 @@ import { ResetComponent } from './Account/reset/reset.component';
 import { ForgetPasswordComponent } from './Account/forget-password/forget-password.component';
 import { SingleProductComponent } from './pages/single-product/single-product.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 
 
@@ -32,6 +33,7 @@ const routes: Routes = [
   { path: 'forget', component: ForgetPasswordComponent, title: 'Forget Password' },
   { path: 'profile', component: ProfileComponent, title: 'User Profile' },
   { path: 'cart', component: CartComponent, title: 'Our Cart' },
+  {path: 'checkout', component:CheckoutComponent , title: 'Checkout'},
   { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
   { path: "**", component: NotFoundComponent, title: '404 page' }
 ];

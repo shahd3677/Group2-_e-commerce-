@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart',
@@ -9,13 +9,14 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './cart.component.css'
 })
 export class CartComponent  implements OnInit{
-  products:any
- constructor(private route:ActivatedRoute){
+  products:[]=[]
+  title="cart"
+ constructor(){
 
  }
  ngOnInit(): void {
    
-  
+
    
  }
 }

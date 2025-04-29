@@ -1,4 +1,6 @@
-<div class="container  py-5">
+<app-subsection [pageTitle]="title" ></app-subsection>
+
+ <div class="container  py-5">
     <div class="title d-flex justify-content-between my-5 ">
         <h3><a [routerLink]="['/home']"
                 class="text-secondary me-2 text-decoration-none">Home</a> /
@@ -20,14 +22,14 @@
                 </thead>
                 <tbody class=" d-flex col-md-12">
                     <tr class="shadow-sm  border border-light "
-                        *ngFor="let product of products |keyvalue">
-                        <td *ngIf="product.key === 'id'">{{product.value}}</td>
+                        >
+                        <td ></td>
 
                         <td
-                            *ngIf="product.key === 'category'">{{product.value}}</td>
+                        ></td>
                         <!-- <td><input type="number" name="range" id="range" minlength="1" maxlength="10" value="1" ></td> -->
                         <td
-                            *ngIf="product.key === 'price'">{{product.value}}</td>
+                            ></td>
                     </tr>
                   
                 </tbody>
