@@ -25,8 +25,8 @@ export class ProductService {
   getProductsCat(category:any):Observable<any>{
   return this.http.get(this.baseUrl+`category/${category}`)
 }
-  getSingleProduct(id:any):Observable<any>{
-  return this.http.get(this.baseUrl+`${id}`)
+  getSingleProduct(_id:any):Observable<any>{
+  return this.http.get(this.baseUrl+`${_id}`)
 }
 
 }
