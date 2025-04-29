@@ -13,14 +13,14 @@
               <p *ngIf="formRegister.get('first_name')?.errors?.['minlength']" >minlength is 3 or more</p>
             </div>
            </div>
-          <div>
+          <!-- <div>
             <label for="last" class="my-2 fw-semibold">LastName</label>
             <input type="text" id="last" name="last" formControlName="last_name" placeholder="Enter Your LastName" class="form-control rounded-0 mb-3 border-black py-2" >
             <div class="alert alert-danger" *ngIf="formRegister.get('last_name')?.invalid && formRegister.get('last_name')?.touched">
               <p *ngIf="formRegister.get('last_name')?.errors?.['required']" >lastName is required</p>
               <p *ngIf="formRegister.get('last_name')?.errors?.['minlength']" >minlength is 3 or more</p>
             </div>
-          </div>
+          </div> -->
 
           <div>
             <label for="phone" class="my-2 fw-semibold">Phone</label>
@@ -48,14 +48,14 @@
             </div>
 
           </div>
-           <div>
+           <!-- <div>
             <label for="ConFirm" class="my-2 fw-semibold">ConFirmPasword</label>
             <input type="text" id="ConFirm" name="ConFirm" formControlName="confirm_password" placeholder="Enter Your ConFirmPassword" class="form-control rounded-0 mb-3 border-black py-2">
             <div class="alert alert-danger" *ngIf="formRegister.get('confirm_password')?.invalid && formRegister.get('confirm_password')?.touched">
               <p *ngIf="formRegister.get('confirm_password')?.errors?.['required']" >confirmPassword is required</p>
 
             </div>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-dark text-white form-control rounded-0 my-3 fw-bold py-3" [disabled]="formRegister.invalid">SIGN UP</button>
             <p>I have read and agree to the <a href="#"  class="text-dark mx-2">
                 Terms & Conditions</a></p>

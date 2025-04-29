@@ -1,6 +1,7 @@
 
 const mongoose = require('mongoose');
-
+const product  = require("../modules/product");
+const userModel=require("../modules/user_module")
 
 const cartSchema=new mongoose.Schema({
     items:[{

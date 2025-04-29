@@ -24,7 +24,7 @@ app.use("/auth",authRouter)
 app.use("/user",userRouter)
 app.use("/cart",cartRouter)
 //app.use("/categories", categorypath)
-
+app.use(cors());
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });

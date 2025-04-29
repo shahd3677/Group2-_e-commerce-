@@ -1,7 +1,7 @@
 
 const cartModel = require("../modules/cart");
-const { product } = require("../modules/product");
-
+const  product  = require("../modules/product");
+const userModel=require("../modules/user_module")
 // getUsertoCart
 
 const getCart=async(req,res,next)=>{
@@ -36,35 +36,41 @@ const removeToCart=async(req,res,next)=>{
     }
    }
    //addProductToCart
-   const addProductToCart=async(req,res,next)=>{
-    try {
-        const productId = req.body.productId; 
-        const userId = req.params._id;       
-    
-        const isExistProduct = await product.findById(productId);
-        if (!isExistProduct) {
-          return res.status(400).json({ message: "Product doesn't exist" });
-        }
-    
-        let cart = await cartModel.findOne({ user: userId });
-    
-        // لو مفيش كارت، نعمل واحد جديد
-        if (!cart) {
-          cart = new cartModel({
-            user: userId,
-            items: [{ product: isExistProduct._id, price: isExistProduct.price }]
-          });
-        } else {
-          // لو فيه كارت، نضيف المنتج الجديد
-          cart.items.push({ product: isExistProduct._id, price: isExistProduct.price });
-        }
-        cart.totalPrice = cart.items.reduce((acc, item) => acc + item.price, 0);
-        await cart.save();
-        res.status(200).json({ message: "Product added to cart successfully", cart });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
+   const addProductsToCart = async (req, res) => {
+    const { selectedProductIds } = req.body;  // تأكد من أنك تستقبل المصفوفة
+  
+    if (!selectedProductIds || selectedProductIds.length === 0) {
+      return res.status(400).json({ message: 'No products provided' });
     }
-   }
+  
+    try {
+      // تنفيذ منطق إضافة المنتجات إلى السلة
+      const {userId} = req.params._id;
+      const user = await userModel.findById(userId);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+  
+      // منطق إضافة المنتجات إلى السلة
+      // يمكن إضافة كل منتج أو التحقق إذا كان موجودًا مسبقًا في السلة
+      const cart = await cartModel.findOne({ user: user._id });
+  
+      selectedProductIds.forEach(async (productId) => {
+        const isProduct = await product.findById(productId);
+        if (isProduct) {
+          cart.items.push({ product: isProduct._id, price: isProduct.price });
+        }
+      });
+  
+      await cart.save();
+      res.status(200).json({ message: 'Products added to cart successfully', cart });
+  
+    } catch (error) {
+      console.error('Error adding products to cart:', error);
+      res.status(500).json({ message: 'Internal Server Error' });
+    }
+  }
+
    const removeToProductFromCart=async(req,res,next)=>{
       try {
         const userId = req.params._id;    
@@ -89,6 +95,6 @@ const removeToCart=async(req,res,next)=>{
 module.exports={
     getCart,
     removeToCart,
-    addProductToCart,
+    addProductsToCart,
     removeToProductFromCart
 }
