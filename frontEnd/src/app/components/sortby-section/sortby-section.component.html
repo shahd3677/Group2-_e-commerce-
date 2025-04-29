@@ -3,7 +3,7 @@
         <h2>Sort BY</h2>
       </div>
       <div class="col-6 ms-auto">
-      <button class="btn btn-light me-2" routerLink="/category/{{category}}" *ngFor="let category of Categories">{{category}}</button>
+      <button class="btn btn-light me-2" routerLink="/category/{{category.title}}" *ngFor="let category of Categories">{{category.title}}</button>
       </div>
     </div>
 

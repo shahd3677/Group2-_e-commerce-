@@ -9,23 +9,24 @@ export class ProductService {
 
   constructor(private http : HttpClient) {
   }
+    readonly baseUrl = "http://localhost:3000/products/"
 
   getAllProducts():Observable<any>{
-    return this.http.get("https://fakestoreapi.com/products")
+    return this.http.get(this.baseUrl +'all')
   }
 
   getLimitedProducts():Observable<any>{
-    return this.http.get("https://fakestoreapi.com/products?limit=6")
+    return this.http.get(this.baseUrl +'home')
   }
   getAllCategories():Observable<any>{
-    return this.http.get("https://fakestoreapi.com/products/categories")
+    return this.http.get(this.baseUrl +'categories')
   }
 
   getProductsCat(category:any):Observable<any>{
-  return this.http.get(`https://fakestoreapi.com/products/category/${category}`)
+  return this.http.get(this.baseUrl+`category/${category}`)
 }
   getSingleProduct(id:any):Observable<any>{
-  return this.http.get(`https://fakestoreapi.com/products/${id}`)
+  return this.http.get(this.baseUrl+`${id}`)
 }
 
 }

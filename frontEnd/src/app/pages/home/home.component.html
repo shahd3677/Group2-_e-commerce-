@@ -62,13 +62,13 @@
     </div>
 
     <div class="row justify-content-center  m-5">
-      <div class="col-4 col-lg-2" routerLink="/category/{{category}}" *ngFor="let category of Categories">
+      <div class="col-4 col-lg-2" routerLink="/category/{{category.title}}" *ngFor="let category of Categories">
         <div class="category-box mb-5 ">
           <img class=""
-            src="https://cdn.prod.website-files.com/62d3e80a683aff1e46a03314/62d639d629b7a91be9e8c194_product-catagory-chair.png"
+            src="{{category.image}}"
             alt="Chair"
           />
-          <div class="category-title">{{category}}</div>
+          <div class="category-title">{{category.title}}</div>
         </div>
       </div>
     </div>

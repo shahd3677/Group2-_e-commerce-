@@ -88,7 +88,7 @@ router.get('/home', async(req,res)=>{
       image : Joi.string().trim().required(),
       categoryImage : Joi.string().trim().required(),
       price : Joi.number().required(),
-      discountPercentage  : Joi.number().required(),
+      discountPercentage  : Joi.number(),
       stock : Joi.number().required(),
     })
 
@@ -116,14 +116,14 @@ router.get('/home', async(req,res)=>{
 router.put('/update/:id' , async(req,res)=>{
    /// data validation ///////
    const schema = Joi.object({
-    title : Joi.string().trim().required(),
-    description : Joi.string().trim().required(),
-    category : Joi.string().trim().required(),
-    image : Joi.string().trim().required(),
-    categoryImage : Joi.string().trim().required(),
-    price : Joi.number().required(),
-    discountPercentage  : Joi.number().required(),
-    stock : Joi.number().required(),
+    title : Joi.string().trim(),
+    description : Joi.string().trim(),
+    category : Joi.string().trim(),
+    image : Joi.string().trim(),
+    categoryImage : Joi.string().trim(),
+    price : Joi.number(),
+    discountPercentage  : Joi.number(),
+    stock : Joi.number(),
   })
 
   const {error} = schema.validate(req.body)
