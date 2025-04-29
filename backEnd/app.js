@@ -3,9 +3,12 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const staff_routes = require("./routers/staff_route");
-const user_routes = require("./routers/user_route");
+
 const productpath = require("./routers/products");
-// const categorypath = require("./routers/categories");
+const userRouter = require("./routers/user_route");
+const authRouter = require("./routers/auth_route");
+const cartRouter = require("./routers/cart");
+//const categorypath = require('./routers/categories')
 
 dotenv.config({ path: "./Config.env" });
 
@@ -16,9 +19,17 @@ app.use(express.json());
 app.use(cors("http://localhost:4200"));
 
 app.use("/staff", staff_routes);
+
 app.use("/products", productpath);
-app.use("/user", user_routes);
+app.use("/auth", authRouter);
+app.use("/user", userRouter);
+app.use("/cart", cartRouter);
+
 //app.use("/categories", categorypath)
+
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 
 mongoose
   .connect(process.env.MONGODB_URI)
