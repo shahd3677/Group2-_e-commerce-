@@ -18,11 +18,11 @@ throw new Error('Method not implemented.');
   title: string = "Sign Up"
   formRegister: FormGroup = new FormGroup({
     first_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-    last_name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+  
     phone: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10,15}$')]), // رقم هاتف مكون من 10-15 رقم
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required, Validators.pattern('^[0-9]{6}$')]), // كلمة مرور مكونة من 6 أرقام فقط
-    confirm_password: new FormControl('', [Validators.required]) ,
+   
   })
   constructor(private _AuthService: AuthService,private toastr: ToastrService,private router:Router) {
 

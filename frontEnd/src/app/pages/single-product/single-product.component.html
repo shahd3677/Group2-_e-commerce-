@@ -1,1 +1,74 @@
-<p>single-product works!</p>
+<app-subsection [pageTitle]="title"></app-subsection>
+<div class="product-page">
+  <!-- Product Details Section -->
+  <div class="product-details">
+    <img
+      [src]="product.imageUrl"
+      alt="{{ product.name }}"
+      class="product-image"
+    />
+    <div class="product-info">
+      <h1>{{ product.name }}</h1>
+      <p class="price">
+        <span class="current-price">${{ product.price }}</span>
+        <span class="old-price">${{ product.originalPrice }}</span>
+      </p>
+      <p class="description">{{ product.description }}</p>
+      <div class="product-meta">
+        <p><strong>Delivery:</strong>Free delivery(over $50)</p>
+        <p><strong>Stock:</strong>12</p>
+      </div>
+      <div class="purchase-section">
+        <label for="quantity"><strong>Quantity:</strong></label>
+        <input
+          type="number"
+          id="quantity"
+          [(ngModel)]="quantity"
+          min="1"
+          [max]="product.stock"
+        />
+        <button
+          class="btn-buy"
+          (click)="buyNow()"
+          [disabled]="product.stock === 0"
+        >
+          ADD TO CART
+        </button>
+        <p *ngIf="product.stock === 0" class="stock">
+          This product is out of stock.
+        </p>
+        <p *ngIf="product.stock === 12" class="stock">
+          This product is not available at this quantity
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Related Products Section -->
+  <div class="related-products">
+    <h2>Related Products</h2>
+    <p>Most Selling and Trending Product</p>
+    <div class="related-list">
+      <div *ngIf="relatedProducts.length > 0; else noRelated">
+        <div
+          *ngFor="let related of product.relatedProducts"
+          class="related-item"
+        >
+          <div class="image-wrapper">
+            <img [src]="related.imageUrl" [alt]="related.name" />
+            <button class="add-to-cart" (click)="addToCart(related)">
+              Add to Cart
+            </button>
+          </div>
+          <h3>{{ related.name }}</h3>
+          <p>${{ related.price }}</p>
+        </div>
+      </div>
+      <ng-template #noRelated>
+        <p class="no-related-message">
+          There is not any related product to this product.
+        </p>
+      </ng-template>
+    </div>
+  </div>
+</div>

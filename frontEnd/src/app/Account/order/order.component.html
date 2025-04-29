@@ -1,1 +1,26 @@
-<p>order works!</p>
+<app-subsection [pageTitle]="title"></app-subsection>
+<div class="order-history">
+  <h1>Orders</h1>
+  <div *ngIf="orders.length > 0; else noOrders">
+    <table>
+      <thead>
+        <tr>
+          <th>Order #</th>
+          <th>Total Price</th>
+          <th>Date Purchased</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td>{{ order.id }}</td>
+          <td>${{ order.totalPrice.toFixed(2) }}</td>
+          <td>{{ order.date | date : "mediumDate" }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #noOrders>
+    <p>No orders found.</p>
+  </ng-template>
+</div>
